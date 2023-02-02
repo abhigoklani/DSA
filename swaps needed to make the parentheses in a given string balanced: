@@ -1,0 +1,36 @@
+//determine the number of swaps needed to make the parentheses in a given string balanced:
+
+#include <stack>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string str = "())(()())(()";
+    if (str.length() %2 ==0) {
+        
+        stack<char> s;
+        int open_count = 0;
+        int close_count = 0;
+        for(auto a: str){
+            if(a=='(') {
+                s.push(a);
+                open_count++;
+            }
+            else if(a==')'){
+                if(s.empty()){
+                    close_count++;
+                }
+                else if(s.top()=='('){
+                    s.pop();
+                    open_count--;
+                }
+            }
+        }
+        int swaps = min(open_count,close_count);
+        if(!s.empty())
+            swaps += s.size();
+        cout<<swaps/2<<endl;
+    }
+    else cout<<"cannot be balanced"<<endl;
+    return 0;
+}
