@@ -1,0 +1,33 @@
+
+#include <iostream>
+#include <stack>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+void insert_(vector<int> &v, int &i, int val){
+    i++;
+    int temp = i;
+    v[i]=val;
+    while(temp/2>0 && v[temp/2]<v[temp]){
+        swap(v[temp],v[temp/2]);
+        temp=temp/2;
+    }
+    
+}
+
+int main() {
+    vector<int> v(10);
+    int i=0;
+    insert_(v, i, 10);
+    insert_(v, i, 12);
+    insert_(v, i, 9);
+    insert_(v, i, 15);
+    insert_(v, i, 8);
+    for(int i=0; i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+  
+}
