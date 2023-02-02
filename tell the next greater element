@@ -1,0 +1,31 @@
+//an array is given 5,9,8,2,1,7, now for each element which is inside this array, you will have to tell the next greater element.
+//eg for 5 next greater element is 9
+//for 9 there is no greater element then it will return -1
+//for 8 there is no greater element then it will return -1
+//for 2 next greater element is 7
+//for 1 next greater element is 7
+//for 7 there is no greater element then it will return -1
+//write a code in c++.
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    int arr[] = {5, 9, 8, 2, 1, 7};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    stack<int> s;
+    s.push(arr[0]);
+    for (int i = 1; i < n; i++) {
+        while (!s.empty() && s.top() < arr[i]) {
+            cout << s.top() << " --> " << arr[i] << endl;
+            s.pop();
+        }
+        s.push(arr[i]);
+    }
+    while (!s.empty()) {
+        cout << s.top() << " --> -1" << endl;
+        s.pop();
+    }
+    return 0;
+}
