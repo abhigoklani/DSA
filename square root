@@ -1,0 +1,15 @@
+
+
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+int main()
+{
+    int x=100 ;
+    int sum=0;
+    for(int i=0;i<x;i++){
+        if(i*i<=x) sum=sum+1;
+    }
+    cout<<int(sqrt(x))<<endl;
+    cout<<sum-1;
