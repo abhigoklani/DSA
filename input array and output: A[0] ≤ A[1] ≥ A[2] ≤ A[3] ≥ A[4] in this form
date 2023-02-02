@@ -1,0 +1,43 @@
+Problem description
+You will be given a zero-indexed array A. You need to rearrange its elements in such a way that the following conditions are satisfied:
+A[i] ≤ A[i+1] if i is even.
+A[i] ≥ A[i+1] if i is odd.
+In other words the following inequality should hold: A[0] ≤ A[1] ≥ A[2] ≤ A[3] ≥ A[4], and so on. Operations ≤ and ≥ should alter.
+Input
+The first line contains a single integer T denoting the number of test cases. The first line of each test case contains an integer N, that is the size of the array A. The second line of each test case contains the elements of array A
+Output
+For each test case, output a single line containing N space separated integers, which are the elements of A arranged in the required order. If there are more than one valid arrangements, you can output any of them.
+
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int N;
+        cin >> N;
+        int A[N];
+        for (int i = 0; i < N; i++) {
+            cin >> A[i];
+        }
+        sort(A, A + N);
+        //10 5 2
+        //2 5 10
+        //2 10 5
+        //1 2 3 4 5 6 7
+        //2 1 4 3 6 5 7
+        for (int i = 1; i < N-1; i+=2) {
+            //if(N==2) break;
+            {
+                if(A[i]>A[i+1]) continue;
+                else swap(A[i], A[i + 1]);}
+        }
+        for (int i = 0; i < N; i++) {
+            cout << A[i] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
+}
