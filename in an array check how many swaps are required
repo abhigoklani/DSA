@@ -1,0 +1,30 @@
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+int main() {
+    int x;
+    cin>>x;
+   
+    for(int k=0;k<x;k++){
+        int y;
+        cin>>y;
+        vector<int> v;
+        for(int j=0;j<y;j++){
+            int b;
+            cin>>b;
+            v.push_back(b);
+        }
+        //for(int i=0;i<v.size();i++)cout<<v[i]<<" ";
+        int z=0;
+        for(int i=0;i<v.size();i++){
+            if(v[i]!=(i+1)) {
+                swap(v[i], v[(v[i]-1)]);
+                z++;}
+            }
+        cout<<"Case "<<k+1<<": "<<z<<endl;
+        }
+    return 0;
+}
