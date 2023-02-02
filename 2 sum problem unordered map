@@ -1,0 +1,18 @@
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+int main() {
+    vector<int> nums={1,5,2,4,3,7,8};
+    int target = 10;
+    unordered_map<int,int> m;
+   
+            for (int i =0; i < nums.size() ; i++){
+                int x=nums[i];
+                int y=target-x;
+                if(m.find(y) != m.end()){ cout<<"indexes: "<<i<<" & "<<m[y]<<" elements are: "<<nums[i]<<" & "<<nums[m[y]]<<endl ;}
+                m[nums[i]]=i;
+    }
+    return 0;
+}
