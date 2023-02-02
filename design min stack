@@ -1,0 +1,30 @@
+//design min stack(will return the minimum value in stack and also can operate all the functions of stack like pop, top, push etc)
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    stack<int> s;
+    int min= INT_MAX;
+    stack<int> s1;
+    for(int i=0;i<T;i++){
+        int a;
+        cin>>a;
+        s.push(a);
+        if(a<min){
+            min=a;
+            s1.push(min);
+        }
+    }
+    //s1.pop();
+    //s.pop();
+    cout<<s.top()<<endl;
+    cout<<"min element in the original stack"<<s1.top();
+   
+    
+    
+    return 0;
+}
