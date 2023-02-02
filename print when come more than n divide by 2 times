@@ -1,0 +1,15 @@
+//For this solution array must be sorted , else u will have to sort the array first.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+int main()
+{
+    vector<int> v={1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,4,4,4};
+    int n=v.size();
+    cout<<v[n/2];
+   return 0;
+}
+//(HINT: THE MAJORITY ELEMENT WILL COME ALWAYS IN BETWEEN)
