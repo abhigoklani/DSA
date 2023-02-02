@@ -1,0 +1,27 @@
+//an array of n elements is given, not suppose each element is the number of stones , we have to pick max number of stones present is array then keep half number of stones with us and remaining return back to array, and we have to do this operation k number times, find after k times how many stones are with me.
+
+#include <iostream>
+#include <stack>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <queue>
+
+using namespace std;
+
+
+int main() {
+    vector<int> v={3,4,5,1,6,7};
+    priority_queue<int> q;
+    for (auto a : v) q.push(a);
+    int k=3,sum=0;
+    //cout<<q.size()<<endl;;
+    while(k--){
+        int a=q.top();
+        sum=sum+a/2;
+        q.pop();
+        q.push(a-a/2);
+    }
+    cout<<sum<<endl;
+    
+}
