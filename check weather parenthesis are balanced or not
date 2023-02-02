@@ -1,0 +1,23 @@
+
+
+#include<stack>
+#include <iostream>
+using namespace std;
+bool check_balanced(string str)
+{
+    stack<char> s;
+    for(auto a: str){
+        if(a=='(') s.push(a);
+        else{
+            if(!s.empty() && s.top()=='(') s.pop();
+            else s.push(a);
+        }
+    }
+    if(s.size()==0) return true;
+    else return false;
+}
+int main() {
+    string str = "((()))()";
+    cout<<check_balanced(str)<<endl;
+    return 0;
+}
