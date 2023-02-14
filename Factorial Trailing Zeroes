@@ -1,0 +1,29 @@
+//if output is 0 then player 1 is loosing
+//if output is 1 then player 1 is wining as result is based on 1st player weather 1 is winnign or loosing.
+
+
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+int trailingZeroes(int n) {
+       int count = 0;
+       while (n > 0) {
+           count += n / 5;
+           n /= 5;
+       }
+       return count;
+   }
+int main() {
+    int n;
+    cin>>n;
+    
+    cout<<trailingZeroes(n)<<endl;
+    return 0;
+}
+
