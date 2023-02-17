@@ -1,0 +1,24 @@
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+int game(int s,int e,vector<int> &piles,vector<vector<int>> &dp){
+    if(s>e) return 0;
+    if(dp[s][e] !=-1) return dp[s][e];
+    int op1 = piles[s]-game(s+1, e, piles,dp);
+    int op2 = piles[e]-game(s, e-1, piles,dp);
+    return dp[s][e] = max(op1,op2);
+}
+int main() {
+    vector<int> piles = {7,6,4,2,1,9};
+    int n=piles.size();
+    vector<vector<int>> dp(n,vector<int> (n,-1));
+    int ans=game(0,n-1,piles,dp);
+    if(ans>0) cout<<"alice wins";
+    else cout<<"bob wins";
+}
