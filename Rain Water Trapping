@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int calculate_water_filled(vector<int>& heights) {
+    int n = heights.size();
+
+    vector<int> left_max(n), right_max(n);
+    left_max[0] = heights[0];
+    right_max[n-1] = heights[n-1];
+
+
+    for (int i = 1; i < n; i++) {
+        left_max[i] = max(left_max[i-1], heights[i]);
+        right_max[n-i-1] = max(right_max[n-i], heights[n-i-1]);
+    }
+
+  
+    int water_filled = 0;
+    for (int i = 0; i < n; i++) {
+        water_filled += min(left_max[i], right_max[i]) - heights[i];
+    }
+
+    return water_filled;
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    for (int i = 0; i < T; i++) {
+        int N;
+        cin >> N;
+
+        vector<int> heights(N);
+        for (int j = 0; j < N; j++) {
+            cin >> heights[j];
+        }
+
+        int water_filled = calculate_water_filled(heights);
+        cout << water_filled << endl;
+    }
+
+    return 0;
+}
