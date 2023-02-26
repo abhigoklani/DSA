@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<vector<int>> activities={{4,10},{3,7},{5,8},{7,10},{13,15}};
+    for(int i=0;i<activities.size();i++){
+        swap(activities[i][0], activities[i][1]);
+    }
+    // first off all we have to sort the activitiens according to end time, because if the activity ends ffirst then only we can select maximum activities.
+    sort(activities.begin(),activities.end());
+    for(int i=0;i<activities.size();i++){
+        cout<<activities[i][1]<<" "<<activities[i][0]<<endl;
+    }
+    
+    vector<vector<int>> activities_new;
+    activities_new.push_back({activities[0][0],activities[0][1]});
+    int con=1;
+    for(int i=0;i<activities.size();i++){
+        for(int j=1;j<activities.size();j++){
+            if(activities[i][0]<=activities[j][1]){
+                i=j;
+            activities_new.push_back({activities[j][1],activities[j][0]});
+                con=con+1;
+            }
+                }
+    }
+    
+    cout<<"number of activities you can perform: "<<con<<endl;
+    for(int i=0;i<activities_new.size();i++){
+        cout<<"activity number: "<<i+1<<" : "<<activities_new[i][1]<<" "<<activities_new[i][0]<<endl;}
+    
+}
+
+
+//YOU HAVE A CERTAIN NUMBER OF ACTIVITIES IN A DAY, FOR EACH ACTIVITY YOU HAVE START TIME AND END TIME, AT A TIME YOU CAN PERFOM ONLY ONE ACTIVITY.
+//NOW YOU HAVE TO TELL HOW MANY MAXIMUM ACTIVITIES YOU CAN DO IN A DAY
+
+
+                                          OR
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    vector<vector<int>> activities={{8,10},{4,10},{3,7},{5,8},{7,10},{13,15},{7,15},{7,8}};
+    for(int i=0;i<activities.size();i++){
+        swap(activities[i][0], activities[i][1]);
+    }
+    sort(activities.begin(),activities.end());
+    for(int i=0;i<activities.size();i++){
+        cout<<activities[i][1]<<" "<<activities[i][0]<<endl;
+    }
+    
+    int free =0;
+    int ans=0;
+    for(int i=0;i<activities.size();i++){
+        if(free<=activities[i][1]){
+            ans++;
+            free=activities[i][0];
+        }
+    }
+    cout<<ans<<endl;
+    
+}
+
+
+
+                                          
+
+
+
+
+
