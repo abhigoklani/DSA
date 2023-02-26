@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+            cin >> n;
+            vector<int> a(n);
+            for(int i=0; i<n; i++) {
+                cin >> a[i];
+            }
+            int most_frequent = 0;
+            int freq_count = 0;
+            for(int i=0; i<n; i++) {
+                int curr_count = count(a.begin(), a.end(), a[i]);
+                if(curr_count > freq_count) {
+                    most_frequent = a[i];
+                    freq_count = curr_count;
+                }
+            }
+            int ops = n - freq_count;
+            cout << ops << endl;
+        
+}
+
+
+                          or
+                          
+                         
+                          
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int a;
+    cin>>a;
+    vector<int> v(a);
+    for(int i=0;i<a;i++){
+        cin>>v[i];
+    }
+    sort(v.begin(),v.end());
+    int count = 1;
+    int maxi=1;
+    for(int i=0;i<a;i++){
+        if(v[i]==v[i+1]){
+            count = count+1;
+            maxi = max(count,maxi);
+            
+        }
+        else count = 1;
+        
+        
+    }
+    cout<<a-maxi<<endl;
+}
