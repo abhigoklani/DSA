@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+# include <numeric>
+#include <queue>
+#define ll long long
+using namespace std;
+
+int main() {
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+    ll m,n,john=0,jack=0,count=0;
+    cin>>n>>m;
+    priority_queue<long long> max_q;
+    priority_queue<ll,vector<ll>,greater<ll>> min_q;
+    for(int i=0;i<n;i++){
+        ll x;
+        cin>>x;
+        john=john+x;
+        min_q.push(x);
+    }
+    for(int i=0;i<m;i++){
+        ll x;
+        cin>>x;
+        jack=jack+x;
+        max_q.push(x);
+    }
+    while(john<=jack){
+        ll john_element=min_q.top();
+  
+        ll jack_element = max_q.top();
+        
+        if(john_element>=jack_element) break;
+        john=john-john_element;
+        john=john+jack_element;
+        jack=jack-jack_element;
+        jack=jack+john_element;
+        min_q.pop();
+        max_q.pop();
+        min_q.push(jack_element);
+        max_q.push(john_element);
+        count=count+1;
+    
+    }
+    if(jack>=john) cout<<-1<<endl;
+    else cout<<count<<endl;
+    
+}
+return 0;
+}
