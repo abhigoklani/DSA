@@ -1,0 +1,19 @@
+//https://www.codechef.com/problems/RAMDEV
+
+#include <iostream>
+#define ll long long
+using namespace std;
+
+int main() {
+	ll l,b,ans = 0;
+	cin>>l>>b;
+	ll n;
+	cin>>n;
+	for (int i=0;i<n; i++){
+	    ll li,bi;
+	    cin>>li>>bi;
+	    ans+=max((li/l)*(bi/b), (li/b)*(bi/l));
+	}
+	cout<<ans<<endl;
+	return 0;
+}
