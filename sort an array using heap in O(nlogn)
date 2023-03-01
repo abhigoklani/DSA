@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+# include <numeric>
+#include <queue>
+#include <stack>
+#include <queue>
+#define ll long long
+using namespace std;
+
+
+
+int main() {
+
+    vector<int> v={1,2,78,3,8,3,6};
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+    priority_queue<int, vector<int>, greater<int>> minHeap;
+    for(int i=0;i<v.size();i++){
+        minHeap.push(v[i]);
+    }
+    for(int i=0;i<v.size();i++){
+        int a=minHeap.top();
+        v[i]=a;
+        minHeap.pop();
+        
+    }
+    for(int i=0;i<v.size();i++){
+        cout<<v[i]<<" ";
+    }
+return 0;
+}
+
