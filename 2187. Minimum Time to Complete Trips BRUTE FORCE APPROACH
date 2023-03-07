@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <numeric>
+#include <algorithm>
+#include <queue>
+#include <stack>
+#include <queue>
+#define ll long long
+using namespace std;
+
+
+int main() {
+    vector<int> time={2,1,3};
+    int totaltrips = 5;
+    bool total = true;
+    int su=0;
+    int j=1;
+    while(true){
+        for(int i=0;i<time.size();i++){
+            su=su+(j/time[i]);
+            //cout<<i<<"="<<su<<endl;
+        }
+        if(su>=totaltrips){
+            total= false;
+            break;
+            
+        }
+        else{
+            j++;
+            su=0;
+        }
+    }
+    cout<<j<<endl;
+    
+}
+
