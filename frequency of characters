@@ -1,0 +1,23 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+
+int main() {
+    string name;
+    getline(cin, name);
+    
+    map<char, int> char_frequncy;
+    
+    for(char c: name){
+        char_frequncy[c]++;
+    }
+    for(auto const &ans: char_frequncy){
+        cout<<ans.first<<":"<<ans.second<<endl;
+    }
+
+        return 0;
+    
+}
