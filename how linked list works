@@ -1,0 +1,42 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+struct node{
+    int val;
+    node* next;
+};
+node* insertfront(node* frnt, int v){
+    node* newnode = new node;
+    newnode -> val=v;
+    newnode -> next = frnt;
+    return newnode;
+}
+node* insertback(node* bck, int v){
+    node* newnode = new node;
+    newnode -> val=v;
+    newnode -> next = NULL;
+    bck -> next = newnode;
+    return newnode;
+}
+void printlist(node* frnt){
+    while(frnt!=NULL){
+        cout<<frnt -> val<<" ";
+        frnt = frnt-> next;
+    }
+}
+int main() {
+    node* frnt = NULL,*bck=NULL;
+    node* firstnode = new node;
+    firstnode -> val=0;
+    firstnode -> next=NULL;
+    frnt = firstnode;
+    bck = firstnode;
+    frnt = insertfront(frnt,8);
+    bck = insertback(bck ,10);
+    printlist(frnt);
+        return 0;
+    
+}
