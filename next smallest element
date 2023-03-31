@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stack>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    
+    vector<int> v={8,4,6,2,3};
+    stack<int> s;
+    s.push(v[0]);
+
+    for(int i=1;i<v.size();i++){
+        while(!s.empty() && s.top()>v[i]){
+            cout<<"for "<<s.top()<<" final price is: "<<s.top()-v[i]<<endl;
+            s.pop();
+        }
+        s.push(v[i]);
+    }
+        while(!s.empty()){
+            cout<<"for "<<s.top()<<" final price is: "<<s.top()<<endl;
+            s.pop();
+            
+        }
+
+}
